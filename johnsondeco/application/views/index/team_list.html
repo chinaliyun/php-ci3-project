@@ -1,0 +1,62 @@
+<?php
+	$this->load->view('index/header.html');
+	$this->load->view('index/other_nav.html');
+	$this->load->view('index/banner.html');
+?>
+
+<div class="team-list">
+	<div class="list-header">
+		<div class="title"></div>
+		<div class="page"><?php echo $page ?></div>
+	</div>
+	<ul class="list-content">
+		<?php foreach($team as $k => $v): ?>
+		<li class="list-item">
+			<a href="<?php echo site_url('index/td/').$v['serial'] ?>">
+				<div class="order">
+					<span class="num">0<?php echo ($k+1) ?></span>
+					<span class="date"><?php echo preg_replace("/-/",'/',substr($v['time'],0,10)) ?></span>
+				</div>
+				<div class="content">
+					<p class="title"><?php echo $v['title'] ?></p>
+					<p class="info">
+						<?php echo $v['info'] ?>
+					</p>
+				</div>
+			</a>
+		</li>
+	<?php  endforeach; ?>
+	</ul>
+</div>
+<div class="list-recommand">
+	<div class="header">
+		<img src="<?php echo $image_path.'story-recommand-title.png'; ?>" alt="" class="titl">
+	</div>
+	<ul class="recommand-list">
+		<?php foreach($recommand as $k => $v): ?>
+			<li class="mark">/</li>
+			<li class="list-item">
+				<a href="<?php echo site_url('index/td/').$v['serial'] ?>">
+					<p class="title"><?php echo $v['title'] ?></p>
+					<span class="date"><?php echo preg_replace("/-/",'/',substr($v['time'],0,10)) ?></span>
+					<p class="info">
+						<?php echo $v['info'] ?>
+					</p>
+				</a>
+			</li>
+		<?php endforeach ?>
+		<li class="mark">/</li>
+	</ul>
+</div>
+<?php  
+	$this->load->view('index/footer.html');
+?>
+<script type="text/javascript" src="<?php echo base_url().'public/common/FlexSlider-master/jquery.flexslider-min.js' ?>"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.flexslider').flexslider({
+		    animation: "slide"
+		  });
+		$('.flex-next,.flex-prev').html('');
+	})
+</script>

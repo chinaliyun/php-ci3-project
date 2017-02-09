@@ -1,0 +1,42 @@
+<div class="index-copyright" id="copyright">
+	<div class="box-shadow"></div>
+	<div class="to-top"></div>
+	<div class="logo"></div>
+	<div class="sublogo"></div>
+	<p>copyright</p>
+</div>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url().'public/common/bootstrap/dist/js/bootstrap.min.js' ?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'public/common/jquery-form/jquery.form.js' ?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'public/common/jquery-mousewheel-master/jquery.mousewheel.min.js' ?>"></script>
+<script type="text/javascript">
+	$(function(){
+		// 滚动到顶部功能
+		$('.index-copyright .to-top').click(function(){
+			$(window).scrollTop(0);
+		})
+		
+		$('.index-navbar .a-content .top').html(' ');
+		$('.other-navbar .a-content .top').html(' ');
+
+		$(window).scroll(function(){
+			var curScrollTop = $('body').scrollTop();
+			// console.log(curScrollTop)
+		    if(curScrollTop > 10 && !$('.index-logo').hasClass('index-logo-ho')){
+	    		
+	    		$('.index-logo').stop(true,false).animate({
+	    			'top': '-40px'
+	    		},400, function(){
+	    			$('.index-logo').addClass('index-logo-ho');
+	    		})
+		    }
+		    if(curScrollTop < 50){
+	    		$('.index-logo').stop(true,false).animate({
+	    			'top': '0px'
+	    		}, 400 , function(){
+	    			$('.index-logo').removeClass('index-logo-ho');
+	    		})
+		    }
+		})
+	})
+</script>

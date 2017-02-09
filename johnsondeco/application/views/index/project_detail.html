@@ -1,0 +1,54 @@
+<?php
+	$this->load->view('index/header.html');
+	$this->load->view('index/other_nav.html');
+	// $this->load->view('index/banner.html');
+?>
+<?php  if($project_prev):  ?>
+	<a href="<?php echo $project_prev[0]['serial']; ?>" class="page-fixed-next"></a>
+<?php endif; ?>
+<?php  if($project_next):  ?>
+	<a href="<?php echo $project_next[0]['serial']; ?>" class="page-fixed-prev"></a>
+<?php endif; ?>
+<div class="project-detail">
+	<div class="detail-path">
+	<?php  
+		if($project[0]['category'] == 0){
+			$category = 'po';
+			$categoryString = '外资项目';
+		}elseif($project[0]['category'] == 1){
+			$category = 'pi';
+			$categoryString = '内资项目';
+		}else{
+			$category = 'pr';
+			$categoryString = '住宅项目';
+		}
+	?>
+		您的位置：<a href="<?php echo site_url('index/home'); ?>">首页</a> > <a href="<?php echo site_url('index/home/project/').$category ?>"><?php echo $categoryString ?></a> > <?php echo $project[0]['title'] ?>
+	</div>
+	<div class="detail-content">
+		<?php echo $project[0]['content'] ?>
+	</div>
+	<div class="detail-recommand">
+		<div class="header">
+			<img src="<?php echo $image_path.'project-recommand-title.png'; ?>" alt="" class="titl">
+		</div>
+		<ul class="recommand-list">
+			<?php  foreach($recommand as $k => $v): ?>
+				<li>
+					<a href="<?php echo site_url('index/home/project_detail/').$v['serial'] ?>" class="item">
+						<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+							
+						</div>
+						<div class="cover">
+							<p class="title"><?php echo $v['title']?></p>
+							<!-- <p class="date"><?php echo preg_replace("/-/",'/',substr($v['time'],0,10)) ?></p> -->
+						</div>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</div>
+<?php  
+	$this->load->view('index/footer.html');
+?>

@@ -1,0 +1,35 @@
+<!-- 公用头部 -->
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>上海家徽纹章文化咨询有限公司</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'public/common/normalize/normalize.css' ?>" />
+    <!-- <link rel="stylesheet" type="text/css" href="<?php echo base_url().'public/common/fonts/fzltzh.css' ?>" /> -->
+	<link rel="stylesheet" href="<?php echo base_url().'public/common/FlexSlider-master/flexslider.css' ?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url().'public/dist/index/css/index.min.css?46816' ?>" />
+</head>
+<script type="text/javascript">
+    var ua = navigator.userAgent.toString();
+    function isMobile() {
+        return /phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile/i.test(ua)
+    }
+    if(isMobile()){
+        location.href="<?php echo site_url('wap/').$this->uri->segment(2).'/'.$this->uri->segment(3); ?>"
+        // console.log("<?php echo site_url('mobile/home'); ?>");
+    }
+</script>
+<div class="index-logo">
+    <img class="logoname" src="<?php echo base_url().'public/dist/index/images/logoname.png' ?>" alt="">
+    <!-- <img class="logo" src="<?php echo base_url().'public/dist/index/images/sublogo.png' ?>" alt=""> -->
+    <div class="logo"></div>
+    <div class="sublogo"></div>
+</div>
+
+
+

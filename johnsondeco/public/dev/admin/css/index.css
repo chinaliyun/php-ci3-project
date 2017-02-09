@@ -1,0 +1,314 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #eeeff2;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
+.container-fuild {
+  height: 100%;
+}
+* {
+  font-family: '微软雅黑';
+}
+a:hover {
+  text-decoration: none;
+}
+#codeigniter_profiler {
+  width: 100%;
+  height: 20%;
+  position: fixed;
+  bottom: 0;
+  overflow-y: scroll;
+  left: 0;
+  z-index: 999;
+  background: black;
+}
+.leftnav {
+  width: 280px;
+  height: 100%;
+  position: fixed;
+  background: #262d40;
+}
+.leftnav .logo {
+  width: 100%;
+}
+.leftnav .logo img {
+  display: block;
+  border: none;
+  width: 182px;
+  margin: 10px auto;
+  padding-bottom: 20px;
+}
+.leftnav .nav-list .nav-list-item a {
+  color: white;
+  display: block;
+  width: 240px;
+  margin-left: 20px;
+  padding: 10px 0 10px 10px;
+  border-radius: 2px;
+  transition: margin-left 0.4s, border-left 0.4s;
+}
+.leftnav .nav-list .nav-list-item a:hover {
+  border-left: 5px solid white;
+  background: #488fd2;
+  width: 220px;
+  margin-left: 30px;
+}
+.leftnav .nav-list .nav-list-item .cur-nav {
+  border-left: 5px solid white;
+  background: #488fd2;
+  width: 220px;
+  margin-left: 30px;
+}
+.leftnav .nav-list .nav-list-header {
+  color: #ffffff;
+  height: 40px;
+  padding: 10px 0 10px 20px;
+  background: rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+.leftnav .nav-list .nav-list-header a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  padding: 10px 0 10px 20px;
+}
+.leftnav .nav-list .nav-list-header a:hover {
+  background: #488fd2;
+}
+.login {
+  background: url('../../../dist/admin/images/a.jpg') 100% 100%;
+  background-size: 100% 100%;
+  padding-top: 10%;
+}
+.login .login_form {
+  width: 80%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.2);
+}
+.login .login_form form label.control-label {
+  text-align: left;
+}
+.login .login_form form .login_btn {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+.content {
+  margin-left: 280px;
+  height: 100%;
+}
+.content .topbar {
+  background: #488fd2;
+  border-radius: 0;
+  padding: 10px;
+  color: white;
+  font-size: 2.4em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 0.2em;
+}
+.content p.path {
+  padding: 10px 0;
+  background: white;
+  text-indent: 2em;
+  margin-bottom: 50px;
+  display: none;
+}
+.content p.header {
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+.content .content-main {
+  padding: 0 20px;
+  padding-bottom: 100px;
+}
+.content .admin .admin-status > li {
+  padding: 20px;
+}
+.content .admin .admin-status > li a {
+  padding: 10px;
+  border: 1px solid #c3daf0;
+  border-left: 4px solid #488fd2;
+  display: block;
+  background: white;
+  color: #666;
+  overflow: hidden;
+}
+.content .admin .admin-status > li a span {
+  background: none;
+  border-radius: 18px;
+  border: 2px solid #488fd2;
+  font-size: 15px;
+  font-weight: 500;
+  float: right;
+  line-height: 20px;
+  padding: 0 10px;
+}
+.content .admin table tr td {
+  padding: 10px 8px;
+}
+.content .admin table .editor {
+  color: #262d40;
+}
+.content .admin table .title {
+  color: #488fd2;
+}
+.content .article table .editor,
+.content .story table .editor,
+.content .product table .editor,
+.content .staff table .editor,
+.content .banner table .editor,
+.content .article table .time,
+.content .story table .time,
+.content .product table .time,
+.content .staff table .time,
+.content .banner table .time,
+.content .article table .edit,
+.content .story table .edit,
+.content .product table .edit,
+.content .staff table .edit,
+.content .banner table .edit {
+  text-align: center;
+}
+.content .article table th .title,
+.content .story table th .title,
+.content .product table th .title,
+.content .staff table th .title,
+.content .banner table th .title {
+  text-align: center;
+}
+.content .article table td .edit a,
+.content .story table td .edit a,
+.content .product table td .edit a,
+.content .staff table td .edit a,
+.content .banner table td .edit a {
+  padding: 0 10px;
+}
+.content .article table td .thumb img,
+.content .story table td .thumb img,
+.content .product table td .thumb img,
+.content .staff table td .thumb img,
+.content .banner table td .thumb img {
+  display: block;
+  width: 100%;
+}
+.content .article table td input[for=category],
+.content .story table td input[for=category],
+.content .product table td input[for=category],
+.content .staff table td input[for=category],
+.content .banner table td input[for=category],
+.content .article table td input[for=category2],
+.content .story table td input[for=category2],
+.content .product table td input[for=category2],
+.content .staff table td input[for=category2],
+.content .banner table td input[for=category2] {
+  font-weight: normal;
+}
+.content .article table td span,
+.content .story table td span,
+.content .product table td span,
+.content .staff table td span,
+.content .banner table td span {
+  overflow: hidden;
+}
+.content .article .page,
+.content .story .page,
+.content .product .page,
+.content .staff .page,
+.content .banner .page {
+  text-align: center;
+}
+.content .article .img_item,
+.content .story .img_item,
+.content .product .img_item,
+.content .staff .img_item,
+.content .banner .img_item {
+  display: block;
+  text-align: center;
+  height: 300px;
+  padding: 0;
+}
+.content .article .img_item > a,
+.content .story .img_item > a,
+.content .product .img_item > a,
+.content .staff .img_item > a,
+.content .banner .img_item > a {
+  display: block;
+  width: 100%;
+}
+.content .article .img_item .edit_banner,
+.content .story .img_item .edit_banner,
+.content .product .img_item .edit_banner,
+.content .staff .img_item .edit_banner,
+.content .banner .img_item .edit_banner,
+.content .article .img_item .del_banner,
+.content .story .img_item .del_banner,
+.content .product .img_item .del_banner,
+.content .staff .img_item .del_banner,
+.content .banner .img_item .del_banner {
+  display: inline-block;
+  margin: 10px;
+}
+.content .article_edit .form .form-group .control-label,
+.content .project_edit .form .form-group .control-label,
+.content .staff_edit .form .form-group .control-label,
+.content .admin_eidt .form .form-group .control-label,
+.content .banner_edit .form .form-group .control-label {
+  text-align: left;
+}
+.content .article_edit div.thumb,
+.content .project_edit div.thumb,
+.content .staff_edit div.thumb,
+.content .admin_eidt div.thumb,
+.content .banner_edit div.thumb {
+  padding-top: 100px;
+}
+.content .article_edit div.thumb img,
+.content .project_edit div.thumb img,
+.content .staff_edit div.thumb img,
+.content .admin_eidt div.thumb img,
+.content .banner_edit div.thumb img {
+  display: block;
+  max-width: 80%;
+  margin: 0 auto;
+}
+.content .img_control > .img_list .img_item {
+  margin-bottom: 20px;
+}
+.content .img_control > .img_list .img_item .item-content {
+  border: 2px solid #e6e6e6;
+}
+.content .img_control > .img_list .img_item .item-content img {
+  display: block;
+  border: none;
+  height: 180px;
+  width: 100%;
+  margin: 0 auto;
+}
+.content .img_control > .img_list .img_item .item-content a {
+  display: block;
+  width: 50%;
+  margin: 10px auto;
+  text-align: center;
+}
+.content .img_control > .img_list .img_item .item-content a:hover {
+  background: orange;
+}
+.content .img_control .page {
+  text-align: center;
+}

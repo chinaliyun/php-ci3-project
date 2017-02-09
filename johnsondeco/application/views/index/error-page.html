@@ -1,0 +1,12 @@
+<?php
+	$this->load->view('index/header.html');
+	$this->load->view('index/other_nav.html');
+?>
+<div class="error-page">
+	<img src="<?php echo base_url().'public/dist/index/images/error-img.png' ?>" alt="" class="error-img">
+</div>
+<script type="text/javascript">
+	setTimeout(function(){
+		location.href="/index/home";
+	},3000)
+</script>

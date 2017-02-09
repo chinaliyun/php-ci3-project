@@ -1,0 +1,70 @@
+<style type="text/css">
+	html,body{
+		width: 100%;
+	}
+</style>
+<?php  
+	$this->load->view('wap/header.html');
+?>
+<div class="content product_list wrapper">
+	<div class="page-path"> / <?php echo $path;?> / </div>
+	<div class="list-page">	
+		<a class="prev" href="<?php echo site_url('wap/pl/').$page_prev; ?>"></a>
+		<a class="next" href="<?php echo site_url('wap/pl/').$page_next; ?>"></a>
+	</div>
+	<ul class="scroller">
+	<?php foreach($product as $k=>$v): ?>
+		<li class="list-item" data-id="<?php echo $v['serial'] ?>">
+			<div class="item">
+			<input type="hidden" value="<?php echo $v['category'] ?>">
+			<?php if($v['category'] == 0): ?>
+				<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>'); background-size: 100% auto;background-position: top center; padding-top: 100%; ">
+				</div>
+			<?php endif; ?>
+			<?php if($v['category'] == 1): ?>
+				<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>'); background-size: auto 124%;background-position: top center; padding-top: 100%; ">
+				</div>
+			<?php endif; ?>
+				<div class="cover">
+					<p class="title"><?php echo $v['title'] ?></p>
+					<!-- <p class="time"><?php echo $v['time']; ?></p> -->
+				</div>
+			</div>
+		</li>
+	<?php  endforeach; ?>
+	</ul>
+	<?php foreach($product as $k=>$v): ?>
+		<div class="detail-list" id="<?php echo $v['serial'] ?>">
+			<div class="list-content">
+				<div class="content">
+					<h1><?php echo $v['title'] ?></h1>
+					<img src="<?php echo base_url().'public/upload/'.$v['banner'] ?>" alt="" class="banner">
+					<div class="product-info">
+						<?php echo $v['content'] ?>
+					</div>
+				</div>
+				<div class="detail-close" data-id="<?php echo $v['serial'] ?>">
+					<img src="<?php echo base_url('public/dist/wap/images/close-btn.png') ?>" alt="">
+				</div>
+			</div>
+		</div>
+	<?php  endforeach; ?>
+</div>
+<?php  
+	$this->load->view('wap/footer.html');
+?>
+<script type="text/javascript">
+	$(function(){
+		$('li.list-item').click(function(){
+			var id = $(this).attr('data-id');
+			$('.detail-list').hide(1);
+			$('#'+id).fadeIn(400);
+		})
+		$('.detail-close').click(function(){
+			var id = $(this).attr('data-id');
+			$('.detail-list').hide(1);
+		})
+	})
+</script>
+
+

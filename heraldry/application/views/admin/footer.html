@@ -1,0 +1,20 @@
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="<?php echo base_url().'public/common/bootstrap/dist/js/bootstrap.min.js' ?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'public/common/jquery-form/jquery.form.js' ?>"></script>
+<script type="text/javascript">
+	function loadFileImage(ele){
+	    var file = $(ele).get(0).files[0];
+	    console.log(file);
+	    var regModel = /[png|jpg]/;
+	    if(!file.type.toString().match(regModel)){
+	        alert('只能选择jpg或png格式的图片')
+	        return false;
+	    }
+	    if(!file.size > 1024*1024){
+	        alert('图片大小不能超过1M，请优化后再上传')
+	        return false;
+	    }
+	    $('.thumb_img').attr('src',window.URL.createObjectURL($(ele).get(0).files[0]))
+	}	
+
+</script>

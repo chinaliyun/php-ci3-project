@@ -1,0 +1,30 @@
+<div class="common-footer">
+	<div class="copyright">Powered by COA 版权所有 </div>
+	<div class="logo"></div>
+</div>
+
+
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="<?php echo base_url().'public/common/infinite-scroll/jquery.infinitescroll.js' ?>"></script> -->
+<script type="text/javascript" src="<?php echo base_url().'public/common/jquery-form/jquery.form.js' ?>"></script>
+<!-- <script type="text/javascript" src="<?php echo base_url().'public/common/flexslider-touch/jquery.flexslider-min.js' ?>"></script> -->
+<script type="text/javascript" src="<?php echo base_url().'public/common/FlexSlider-master/jquery.flexslider-min.js' ?>"></script>
+<!-- <script type="text/javascript" src="<?php echo base_url().'public/common/hammer/hammer.js' ?>"></script> -->
+<!-- <script type="text/javascript" src="<?php echo base_url().'public/common/iscroll-master/build/iscroll.js' ?>"></script> -->
+<!-- <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+<script type="text/javascript">
+	$(function(){
+		var navlist = 0;
+		$('.navbar').click(function(){
+			if(navlist == 0){
+				$('.navbar-list').slideDown(400);
+				$('.navbar .menu').addClass('menu-ho');
+				navlist = 1;
+			}else{
+				$('.navbar-list').slideUp(400);
+				$('.navbar .menu').removeClass('menu-ho');
+				navlist = 0;
+			}
+		})
+	})
+</script>

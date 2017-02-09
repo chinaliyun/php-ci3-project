@@ -1,0 +1,79 @@
+<div class="content-main article_edit">
+    <div class="form col-md-6">
+            <p class="header">
+               编辑流程
+            </p>
+            <form role="form" autocomplete="off">
+                <input type="hidden" name='serial' value="<?php echo $flow['serial']; ?>">
+                <div class="form-group">
+                    <label for="content">内容</label>
+                    <textarea name="content" id="content" cols="30" rows="10"><?php echo $flow['content'] ?></textarea>
+                </div>
+                <a class="btn btn-primary submit">发布</a>
+            </form>
+    </div>
+</div>
+<!-- <script type="text/javascript" src="<?php echo base_url().'public/common/ueditor/ueditor.config.js' ?>"></script> -->
+<!-- <script type="text/javascript" src="<?php echo base_url().'public/common/ueditor/ueditor.all.min.js' ?>"></script> -->
+<link rel="stylesheet" href="<?php echo base_url().'public/common/wangEditor/dist/css/wangEditor.min.css' ?>">
+<script type="text/javascript" src="<?php echo base_url().'public/common/wangEditor/dist/js/wangEditor.min.js' ?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'public/common/ajaxfileupload/ajaxfileupload.js' ?>"></script>
+<script type="text/javascript">
+$(function() {
+    // 新的编辑器
+    var editor = new wangEditor('content');
+    // 配置图片上传目录
+    editor.config.uploadImgUrl = "<?php echo site_url('admin/home/upload') ?>";
+    editor.config.hideLinkImg = true;
+    editor.config.uploadParams = {
+           serial: $('input[name=serial').val(),
+           direct: $('input[name=serial').val(),
+           fileField: 'wangEditorH5File'
+    };
+    // 普通的自定义菜单
+    editor.config.menus = [
+        'source',
+        'head',
+        'img',
+        '|',
+        'undo',
+        'redo',
+        'alignleft',
+        'aligncenter',
+        'alignright',
+        'fullscreen'
+    ];
+    // 创建编辑器
+    editor.create();
+    
+    $('input[type=file]').on('change', function(){
+        loadFileImage($(this));
+    })
+    $('.submit').click(function() {
+        var form = $('form').get(0);
+        var data = {
+            'content': form.content.value.trim()
+        };
+        if (data.content.length == 0) {
+            alert('内容不能为空');
+            return false;
+        }
+        $('form').ajaxSubmit({
+            url: "<?php echo site_url('admin/home/flow_send')?>",
+            type: 'POST',
+            success: function(res) {
+                console.log(res)
+                if (res != 0) {
+                    alert('发布成功');
+                    // location.href = "/admin/news";
+                } else {
+                    alert('发布失败，请重试');
+                }
+            },
+            error: function(error){
+                alert('上传出错，请联系管理员');
+            }
+        })
+    })
+})
+</script>

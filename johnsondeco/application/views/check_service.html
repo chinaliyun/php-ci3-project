@@ -1,0 +1,11 @@
+<script type="text/javascript">
+	var ua = navigator.userAgent.toString();
+	function isMobile() {
+        return /phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile/i.test(ua)
+    }
+    if(isMobile()){
+    	location.href="<?php echo site_url('wap/home/loading'); ?>"
+    }else{
+    	location.href="<?php echo site_url('index/home/loading'); ?>"
+    }
+</script>

@@ -1,0 +1,63 @@
+
+<div class="content-main product">
+	<p class="header">
+		产品列表
+	</p>
+	<table class="table table-bordered">
+		<tr>
+			<th>
+				<span class="title col-md-2">编号</span>
+				<span class="title col-md-2">标题</span>
+				<!-- <span class="thumb col-md-2">封面</span> -->
+				<!-- <span class="banner col-md-2">banner</span> -->
+				<span class="category col-md-2">分类</span>
+				<span class="time col-md-2">时间</span>
+				<span class="edit col-md-2">操作</span>
+			</th>
+		</tr>
+		<?php foreach($product as $v): ?>
+		<tr>
+			<td>
+				<span class="thumb col-md-2"><?php echo $v['serial']; ?></span>
+				<a href="" class="title col-md-2"><?php echo $v['title']; ?></a>
+				<!-- <span class="thumb col-md-2"><?php echo $v['thumb']; ?></span> -->
+				<!-- <span class="banner col-md-2"><?php echo $v['banner']; ?></span> -->
+				<span class="col-md-2 category"><?php if($v['category'] == 0){echo '普通产品';}else{echo "高级产品";} ?></span>
+				<span class="time col-md-2"><?php echo $v['time']; ?></span>
+				<span class="edit col-md-2"><a href="<?php echo site_url('admin/product/edit/'),$v['pid'];?>">编辑</a><a href="javascript:;" class="del_product" data-pid="<?php echo $v['pid'];?>" data-serial="<?php echo $v['serial'];?>">删除</a></span>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</table>
+	<!-- <div class="page">页码</div> -->
+</div>
+<script type="text/javascript">
+	$(function(){
+		$('.del_product').click(function(){
+			// $(this).preventDefault();
+			var msg = confirm('确定要删除吗？');
+			if(msg){
+				$.ajax({
+					url: "<?php echo site_url('admin/product/del'); ?>",
+					type: "POST",
+					data: {
+						'pid': $(this).attr('data-pid'),
+						'serial': $(this).attr('data-serial')
+					},
+					success: function(res){
+						if(res == 1){
+							// alert('删除成功')
+							window.location.reload();
+						}else{
+							alert("删除失败，请联系管理员")
+						}
+					},
+					error: function(error){
+						alert('删除失败，请联系管理员')
+					}
+				})
+			}
+			return false;
+		})
+	})
+</script>

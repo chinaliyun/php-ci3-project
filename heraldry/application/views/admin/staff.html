@@ -1,0 +1,63 @@
+
+<div class="content-main article">
+	<p class="header">
+		文章列表
+	</p>
+	<table class="table table-bordered">
+		<tr>
+			<th>
+				<span class="editor col-md-2">姓名</span>
+				<span class="title col-md-2">职位</span>
+				<!-- <span class="time col-md-2">简介</span> -->
+				<!-- <span class="thumb col-md-2">照片</span> -->
+				<span class="time col-md-2">时间</span>
+				<span class="edit col-md-2">操作</span>
+			</th>
+		</tr>
+		<?php foreach ($staff as $v): ?>
+			<tr>
+				<td>
+					<span class="name col-md-2"><?php echo $v['name'] ?></span>
+					<span class="position col-md-2"><?php echo $v['position'] ?></span>
+					<!-- <span class="info col-md-2"><?php echo $v['info'] ?></span> -->
+					<!-- <span class="thumb col-md-2"><?php echo $v['thumb'] ?></span> -->
+					<span class="time col-md-2"><?php echo $v['time'] ?></span>
+					<span class="edit col-md-2"><a href="<?php echo site_url('admin/staff/edit/'),$v['sid'];?>">编辑</a><a href="javascript:;" class="del_staff" data-sid="<?php echo $v['sid'];?>"  data-serial="<?php echo $v['serial'];?>">删除</a></span>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+	</table>
+	<!-- <div class="page"><?=$page?></div> -->
+</div>
+<script type="text/javascript">
+	$(function(){
+		$('.del_staff').click(function(){
+			// $(this).preventDefault();
+			var msg = confirm('确定要删除吗？');
+			if(msg){
+				$.ajax({
+					url: "<?php echo site_url('admin/staff/del'); ?>",
+					type: "POST",
+					data: {
+						'sid': $(this).attr('data-sid'),
+						'serial': $(this).attr('data-serial')
+					},
+					success: function(res){
+						if(res == 1){
+							// alert('删除成功')
+							window.location.reload();
+						}else{
+							alert("删除失败，请联系管理员")
+						}
+					},
+					error: function(error){
+						alert('删除失败，请联系管理员')
+					}
+				})
+			}
+			return false;
+		})
+	})
+</script>
+
+

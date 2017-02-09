@@ -1,0 +1,20 @@
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url().'public/common/bootstrap/dist/css/bootstrap.min.css' ?>" />
+<style type="text/css">
+	body{
+		background: transparent;
+	}
+</style>
+<form action="<?php echo site_url('admin/home/thumb_upload'); ?>" method="POST" enctype="multipart/form-data" role="form">
+	<div class="form-group">
+	    <label for="title">封面</label>
+	    <input type="file" id="file" name="thumb">
+	</div>
+</form>
+<script type="text/javascript">
+	$(function(){
+		$('#file').on('change',function(){
+			$('form').submit();
+		})
+	})
+</script>

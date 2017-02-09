@@ -1,0 +1,304 @@
+<?php
+	$this->load->view('index/header.html');
+	$this->load->view('index/index_nav.html');
+	$this->load->view('index/banner.html');
+?>
+
+<div class="site-loading">
+	<img src="<?php echo $image_path.'sublogo.png' ?>" alt="">
+</div>
+<div class="index-about" id="index-about">
+	<div class="box-shadow"></div>
+	<!-- <img class="title" src="<?php echo base_url().'public/dist/index/images/index-about-title.png' ?>" alt=""> -->
+	<div class="title"></div>
+	<div class="text">
+		<p class="left">
+			<?=$companyleft?>
+		</p>
+		<p class="right">
+			<?=$companyright?>
+		</p>
+	</div>
+	<div class="author">
+		<p class="text">“The secret of getting ahead is getting started.”      —— MARK  TWAIN</p>
+		<p class="name">取得进展的秘诀就是开始!             —— 马克·吐温</p>
+	</div>
+</div>
+<div class="index-news" id="index-news">
+	<!-- <img class="title" src="<?php echo base_url().'public/dist/index/images/index-news-title.png' ?>" alt=""> -->
+	<div class="title"></div>
+	<div class="content">
+		<?php foreach($news as $v): ?>
+			<a href="<?php echo site_url('index/nd/').$v['serial'] ?>" class="item">
+				<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+					
+				</div>
+				<div class="cover">
+					<p class="date"><?php echo $v['english']; ?></p>
+					<p class="title"><?php echo $v['title'] ?></p>
+				</div>
+			</a>
+		<?php  endforeach; ?>
+	</div>
+	<a href="<?php echo site_url('index/nl') ?>" class="more">/　更多　/</a>
+</div>
+<div class="index-outside" id="index-outside">
+	<div class="box-shadow"></div>
+	<div class="title"></div>
+	<div class="content">
+		<?php foreach($project_outside as $v): ?>
+			<a href="<?php echo site_url('index/home/project_detail/').$v['serial'].'?c=po' ?>" class="item">
+				<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+					
+				</div>
+				<div class="cover">
+					<!-- <p class="date"><?php echo preg_replace("/-/",'/',substr($v['time'],0,10)); ?></p> -->
+					<p class="title"><?php echo $v['title'] ?></p>
+				</div>
+			</a>
+		<?php  endforeach; ?>
+	</div>
+	<a href="<?php echo site_url('index/home/project/po') ?>" class="more">/　更多　/</a>
+</div>
+<div class="index-inside" id="index-inside">
+	<div class="title"></div>
+	<div class="content">
+		<?php foreach($project_inside as $v): ?>
+			<a href="<?php echo site_url('index/home/project_detail/').$v['serial'].'?c=pi' ?>" class="item">
+				<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+					
+				</div>
+				<div class="cover">
+					<!-- <p class="date"><?php echo preg_replace("/-/",'/',substr($v['time'],0,10)); ?></p> -->
+					<p class="title"><?php echo $v['title'] ?></p>
+				</div>
+			</a>
+		<?php  endforeach; ?>
+	</div>
+	<a href="<?php echo site_url('index/home/project/pi') ?>" class="more">/　更多　/</a>
+</div>
+<div class="index-residence" id="index-residence">
+	<div class="title"></div>
+	<div class="content">
+		<?php foreach($project_residence as $v): ?>
+			<a href="<?php echo site_url('index/home/project_detail/').$v['serial'].'?c=pr' ?>" class="item">
+				<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+					
+				</div>
+				<div class="cover">
+					<!-- <p class="date"><?php echo preg_replace("/-/",'/',substr($v['time'],0,10)); ?></p> -->
+					<p class="title"><?php echo $v['title'] ?></p>
+				</div>
+			</a>
+		<?php  endforeach; ?>
+	</div>
+	<a href="<?php echo site_url('index/home/project/pr') ?>" class="more">/　更多　/</a>
+</div>
+<div class="index-team" id="index-team">
+	<div class="title"></div>
+	<div class="content">
+		<?php foreach($team as $v): ?>
+			<a href="<?php echo site_url('index/td/').$v['serial'] ?>" class="item">
+				<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+					
+				</div>
+				<div class="cover">
+					<p class="title"><?php echo $v['title'] ?></p>
+				</div>
+			</a>
+		<?php  endforeach; ?>
+	</div>
+	<a href="<?php echo site_url('index/home/team') ?>" class="more">/　更多　/</a>
+</div>
+
+<!-- <div class="index-staff" id="index-staff">
+	<div class="box-shadow"></div>
+	<img class="title" src="<?php echo base_url().'public/dist/index/images/index-staff-title.png' ?>" alt="">
+	<div class="title"></div>
+	<div class="content">
+		<?php foreach($staff as $v): ?>
+			<a href="javascript:;" class="item">
+				<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+					
+				</div>
+				<div class="cover">
+					<p class="name"><?php echo $v['name'] ?></p>
+					<div class="border"></div>
+					<p class="position"><?php echo $v['position'] ?></p>
+					<p class="info"><?php echo $v['info'] ?></p>
+				</div>
+			</a>
+		<?php  endforeach; ?>
+	</div>
+</div> -->
+<div class="index-contact" id="index-contact">
+	<!-- <img class="title" src="<?php echo base_url().'public/dist/index/images/index-contact-title.png' ?>" alt=""> -->
+	<div class="box-shadow"></div>
+	<div class="title"></div>
+	<div class="content">
+		<form class="form-message">
+			<input type="text" placeholder="您的姓名:" name="name">
+			<input type="text" placeholder="您的联系方式：" name="mobile">
+			<textarea id="" placeholder="您的留言内容：" name="info" maxlength="300"></textarea>
+			<a href="javascript:;" class="submit">/　确定　/</a>
+		</form>
+		<div class="show">
+			<div class="phone">
+				<div class="icon"></div>
+				<p class="name">联系电话</p>
+				<p class="text">021-63122266</p>
+			</div>
+			<div class="email">
+				<div class="icon"></div>
+				<p class="name">联系邮箱</p>
+				<p class="text">tiffany@heraldry.cn</p>
+			</div>
+			<div class="address">
+				<div class="icon"></div>
+				<p class="name">工作地址</p>
+				<p class="text">上海市杨浦区国权路98号国阳大厦808室 P.R.C.200433</p>
+			</div>
+			<div class="time">
+				<div class="icon"></div>
+				<p class="name">工作时间</p>
+				<p class="text">09:00 AM~06:00 PM</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<?php  
+	$this->load->view('index/footer.html');
+?>
+<script type="text/javascript" src="<?php echo base_url().'public/common/FlexSlider-master/jquery.flexslider-min.js' ?>"></script>
+<script type="text/javascript">
+	$(function(){
+		// 生成滚动banner
+		$('.flexslider').flexslider({
+		    animation: "slide"
+		  });
+
+		setTimeout(function(){
+			$('.site-loading').addClass('hide').hide();
+		},2000)
+
+		// 清空banner控制器内的文字
+		function getPosition(ele){
+			return $(ele).offset().top;
+		}
+		$('.flex-next,.flex-prev').html('');
+		var index_banner = getPosition('.index-banner') - 150,
+			index_about = getPosition('#index-about') - 150,
+			index_news = getPosition('#index-news') - 150,
+			index_flow = getPosition('#index-outside') - 150,
+			index_story = getPosition('#index-inside') - 150,
+			index_product = getPosition('#index-residence') - 150,
+			index_team = getPosition('#index-team') - 150,
+			index_contact = getPosition('#index-contact') - 150;
+
+		// 公司产品的滑动控制
+		$('.index-product .next').mouseenter(function(){
+			$('.index-product .control-nav a').removeClass('active')
+			$(this).addClass('active');
+			$('.index-product .content-list').stop(true,true).animate({
+				'left': '-1096px',
+			}, 400)
+		})
+		$('.index-product .prev').mouseenter(function(){
+			$('.index-product .control-nav a').removeClass('active')
+			$(this).addClass('active');
+			$('.index-product .content-list').stop(true,true).animate({
+				'left': '0px',
+			}, 400)
+		})
+
+
+
+		
+
+		// 检测页面位置，改变navbar状态
+		$(window).scroll(function(){
+			var curScrollTop = $(window).scrollTop();
+		    if(curScrollTop > index_banner && curScrollTop < index_about){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .index').addClass('active')
+		    }
+		    if(curScrollTop > index_about-100 && curScrollTop < index_news){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .about').addClass('active')
+		    }
+		    if(curScrollTop > index_news && curScrollTop < index_flow){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .news').addClass('active')
+		    }
+		    if(curScrollTop > index_flow && curScrollTop < index_story){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .flow').addClass('active')
+		    }
+		    if(curScrollTop > index_story && curScrollTop < index_product){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .story').addClass('active')
+		    }
+		    if(curScrollTop > index_product && curScrollTop < index_team){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .product').addClass('active')
+		    }
+		    if(curScrollTop > index_team && curScrollTop < index_contact){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .team').addClass('active')
+		    }
+		    if(curScrollTop > index_contact){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .contact').addClass('active')
+		    }
+		})
+
+		// 联系我们表单边框效果
+		$('.index-contact input,textarea').on('focus',function(){
+			$(this).addClass('active')
+		})
+		$('.index-contact input,textarea').on('blur',function(){
+			$(this).removeClass('active')
+		})
+
+
+		// 留言表单提交
+		$('.form-message .submit').click(function(){
+			var form = $('.form-message').get(0);
+			var data = {
+				'name': form.name.value.trim(0),
+				'mobile': form.mobile.value.trim(0),
+				'info': form.info.value.trim(0),
+			};
+			if(data.name.length == 0){
+				alert('请输入您的姓名');
+				return false;
+			}
+			if(!/^1\d{10}$/.test(data.mobile)){
+				alert('请输入正确的手机号码')
+				return false;
+			}
+			$('.form-message').ajaxSubmit({
+				url: "<?php echo site_url('index/home/message_send'); ?>",
+				type: "POST",
+				success: function(res){
+					if(res != 0){
+						alert('您的留言已提交成功，请耐心等待我们的回复');
+						location.reload();
+					}else{
+						alert("提交出错，请直接电话联系")
+					}
+				},
+				error: function(error){
+					alert('提交出错，请重试');
+				}
+			})
+		})
+
+
+		
+
+
+	})
+</script>

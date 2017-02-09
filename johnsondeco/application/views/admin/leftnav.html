@@ -1,0 +1,93 @@
+<!-- 左边导航 公用 -->
+<div class="leftnav">
+    <div class="logo">
+        <img src="<?php echo base_url().'public/dist/admin/images/logo.png' ?>" alt="">
+    </div>
+    <!-- <?php echo $current_nav;  ?> -->
+    <ul class="nav-list">
+        <li class="nav-list-header">
+            <a href="<?php echo site_url('admin/home') ?>" class="<?php if($current_nav == '') echo 'cur-nav';?>">
+	  			系统信息
+  			</a>
+        </li>
+        <!-- <li class="nav-list-header">留言管理</li> -->
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/home/message') ?>" class="<?php if($current_nav == 'message') echo 'cur-nav';?>">
+	  			留言列表
+  			</a>
+        </li>
+        <!-- <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/home/entry') ?>" class="<?php if($current_nav == 'entry') echo 'cur-nav';?>">
+                          申请记录
+                      </a>
+        </li> -->
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/banner') ?>" class="<?php if($current_nav == 'banner') echo 'cur-nav';?>">
+                Banner列表
+            </a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/banner/edit') ?>" class="<?php if($current_nav == 'bannerEdit') echo 'cur-nav';?>">
+                新增Banner
+            </a>
+        </li>
+        <!-- <li class="nav-list-header">新闻管理</li> -->
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/news') ?>" class="<?php if($current_nav == 'news') echo 'cur-nav';?>">
+	  			新闻列表
+  			</a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/news/edit') ?>" class="<?php if($current_nav == 'newsEdit') echo 'cur-nav';?>">
+	  			发布新闻
+  			</a>
+        </li>
+        <!-- <li class="nav-list-header">故事管理</li> -->
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/project') ?>" class="<?php if($current_nav == 'project') echo 'cur-nav';?>">
+          项目列表
+            </a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/project/edit') ?>" class="<?php if($current_nav == 'projectEdit') echo 'cur-nav';?>">
+          发布项目
+            </a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/team') ?>" class="<?php if($current_nav == 'team') echo 'cur-nav';?>">
+                团队列表
+            </a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/team/edit') ?>" class="<?php if($current_nav == 'teamEdit') echo 'cur-nav';?>">
+                添加团队
+            </a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/staff') ?>" class="<?php if($current_nav == 'staff') echo 'cur-nav';?>">
+                员工列表
+            </a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/staff/edit') ?>" class="<?php if($current_nav == 'staffEdit') echo 'cur-nav';?>">
+                添加员工
+            </a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/home/company') ?>" class="<?php if($current_nav == 'company') echo 'cur-nav';?>">
+                公司设置
+            </a>
+        </li>
+        <!-- <li class="nav-list-header">系统管理</li> -->
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/home/user_edit') ?>" class="<?php if($current_nav == 'userEdit') echo 'cur-nav';?>">
+	  			修改密码
+  			</a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/media/') ?>" class="<?php if($current_nav == 'media') echo 'cur-nav';?>">
+	  			图片管理
+  			</a>
+        </li>
+    </ul>
+</div>

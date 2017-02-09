@@ -1,0 +1,23 @@
+<?php  
+	$this->load->view('wap/header.html');
+?>
+<style type="text/css">
+	.index-copyright,.common-header,.placeholder,.common-footer{
+		display: none;
+	}
+</style>
+<div class="index-loading">
+	<a href="<?php echo site_url('wap') ?>" class="top"></a>
+	<a href="http://heraldry.cn/wap" class="bottom"></a>
+</div>
+<?php  
+	$this->load->view('wap/footer.html');
+?>
+<script type="text/javascript">
+	$(function(){
+		var WH = window.innerHeight;
+		$('.index-loading a').css({
+			'height': WH / 2 + 'px'
+		})
+	})
+</script>

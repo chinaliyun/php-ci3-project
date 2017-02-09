@@ -1,0 +1,17 @@
+<?php  
+	$this->load->view('wap/header.html');
+?>
+<div class="detail flow_detail">
+	<div class="detail-content">
+		<?php echo $flow[0]['content'] ?>
+	</div>
+</div>
+<?php  
+	$this->load->view('wap/footer.html');
+?>
+<script type="text/javascript">
+	$(function(){
+		$('.detail-content img').attr('alt','');
+	})
+</script>
+

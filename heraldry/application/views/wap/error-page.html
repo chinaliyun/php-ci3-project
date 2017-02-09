@@ -1,0 +1,20 @@
+<?php  
+	$this->load->view('wap/header.html');
+	$this->load->view('wap/nav_bar.html');
+?>
+<style type="text/css">
+	body{
+		background: url('<?php echo base_url().'public/dist/wap/images/body-bg.png' ?>');
+	}
+</style>
+<div class="error-page">
+	<img src="<?php echo base_url().'public/dist/wap/images/error-img.png' ?>" alt="" class="error-img">
+</div>
+<script type="text/javascript">
+	setTimeout(function(){
+		location.href="/wap/";
+	},3000)
+</script>
+<?php  
+	$this->load->view('wap/footer.html');
+?>

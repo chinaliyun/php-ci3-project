@@ -1,0 +1,545 @@
+<?php
+	$this->load->view('index/header.html');
+	$this->load->view('index/index_nav.html');
+	$this->load->view('index/banner.html');
+?>
+
+<div class="site-loading">
+	<img src="<?php echo $image_path.'sublogo.png' ?>" alt="">
+</div>
+<div class="index-about" id="index-about">
+	<div class="box-shadow"></div>
+	<!-- <img class="title" src="<?php echo base_url().'public/dist/index/images/index-about-title.png' ?>" alt=""> -->
+	<div class="title"></div>
+	<div class="text">
+		<p class="left">
+			<?=$companyleft?>
+		</p>
+		<p class="right">
+			<?=$companyright?>
+		</p>
+	</div>
+	<div class="author">
+		<p class="text">“The secret of getting ahead is getting started.”      —— MARK  TWAIN</p>
+		<p class="name">取得进展的秘诀就是开始!             —— 马克·吐温</p>
+	</div>
+</div>
+<div class="index-news" id="index-news">
+	<!-- <img class="title" src="<?php echo base_url().'public/dist/index/images/index-news-title.png' ?>" alt=""> -->
+	<div class="title"></div>
+	<div class="content">
+		<?php foreach($news as $v): ?>
+			<a href="<?php echo site_url('index/nd/').$v['serial'] ?>" class="item">
+				<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+					
+				</div>
+				<div class="cover">
+					<p class="title"><?php echo $v['title'] ?></p>
+					<p class="english"><?php echo $v['english'] ?></p>
+				</div>
+			</a>
+		<?php  endforeach; ?>
+	</div>
+	<a href="<?php echo site_url('index/nl') ?>" class="more">/　更多　/</a>
+</div>
+<div class="index-flow" id="index-flow">
+	<div class="box-shadow"></div>
+	<div class="title"></div>
+	<div class="content">
+		<a href="javascript:;" class="apply">
+			<div class="icon"></div>
+			<p class="en">Application</p>
+			<p class="cn">家徽申请</p>
+			<div class="space"></div>
+			<p class="text" style="line-height: 1.6rem;">
+				请填写上相关信息并提交给我们，专属纹章官将于48个小时内与你联系。开启家徽定制之旅，纹章院用心提供优质服务！
+			</p>
+		</a>
+		<a href='<?php echo site_url('index/home/flow') ?>' class="show">
+			<div class="design">
+				<div class="icon"></div>
+				<div class="space"></div>
+				<div class="name">
+					<p class="en">Design</p>
+					<p class="cn">家徽设计</p>
+				</div>
+			</div>
+			<div class="cost">
+				<div class="icon"></div>
+				<div class="space"></div>
+				<div class="name">
+					<p class="en">Cost</p>
+					<p class="cn">设计费用</p>
+				</div>
+			</div>
+			<div class="awarding">
+				<div class="icon"></div>
+				<div class="space"></div>
+				<div class="name">
+					<p class="en">Awarding</p>
+					<p class="cn">家徽 &amp; 证书颁发</p>
+				</div>
+			</div>
+			<div class="registration">
+				<div class="icon"></div>
+				<div class="space"></div>
+				<div class="name">
+					<p class="en">Registration</p>
+					<p class="cn">家徽注册</p>
+				</div>
+			</div>
+			<div class="ceremony">
+				<div class="icon"></div>
+				<div class="space"></div>
+				<div class="name">
+					<p class="en">Ceremony</p>
+					<p class="cn">家徽授予仪式</p>
+				</div>
+			</div>
+			<div class="consultation">
+				<div class="icon"></div>
+				<div class="space"></div>
+				<div class="name">
+					<p class="en">Consultation</p>
+					<p class="cn">问题咨询 &amp; 答疑</p>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+<div class="index-form">
+	<div class="content">
+		<div class="form-body">
+			<div class="close"></div>
+			<div class="form-header"></div>
+			<form action="" class="form-entry">
+				<div class="form-group name">
+					<div class="left"><span class="icon"></span></div>
+					<input type="text" name="name">
+					<span>姓名</span>
+				</div>
+				<div class="form-group sex">
+					<div class="left"><span class="icon"></span></div>
+					<input type="text" >
+					<span>称谓</span>
+					<div class="checkbox">
+						<i class="male checked" data-value="1"></i>
+						<i class="male-icon"></i>
+						<i class="female" data-value="0"></i>
+						<i class="female-icon"></i>
+					</div>
+					<input type="hidden" name='sex' value="1">
+				</div>
+				<div class="form-group birth">
+					<div class="left"><span class="icon"></span></div>
+					<input type="text" name="birth" placeholder="格式：2016-11-06">
+					<span>出生年月</span>
+				</div>
+				<div class="form-group wechat">
+					<div class="left"><span class="icon"></span></div>
+					<input type="text" name="wechat">
+					<span>微信号</span>
+				</div>
+				<div class="form-group mobile">
+					<div class="left"><span class="icon"></span></div>
+					<input type="text" name="mobile">
+					<span>手机号</span>
+				</div>
+				<div class="form-group email">
+					<div class="left"><span class="icon"></span></div>
+					<input type="text" name="email">
+					<span>邮箱</span>
+				</div>
+				<a href="javascript:;" class="submit">提 交</a>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="index-story" id="index-story">
+	<!-- <img class="title" src="<?php echo base_url().'public/dist/index/images/index-story-title.png' ?>" alt=""> -->
+	<div class="title"></div>
+	<div class="content">
+		<?php  foreach($story as $k=> $v): ?>
+			<a href="<?php echo site_url('index/sd/').$v['serial'] ?>" class="item item<?php echo ($k+1); ?>">
+				<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+					
+				</div>
+				<div class="cover">
+					<p class="cn"><?php echo $v['title'] ?></p>
+					<p class="en"><?php echo $v['english'] ?></p>
+				</div>
+			</a>
+		<?php  endforeach; ?>
+	</div>
+	<a href="<?php echo site_url('index/sl') ?>" class="more">/　更多　/</a>
+</div>
+<div class="index-product" id="index-product">
+	<!-- <img class="title" src="<?php echo base_url().'public/dist/index/images/index-product-title.png' ?>" alt=""> -->
+	<div class="title"></div>
+	<div class="content">
+		<div class="content-list">
+			<div class="list-item p1">
+				<a href="<?php echo site_url('index/home/product?v=n#').$product_normal[0]['serial'] ?>" class="item item1">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_normal[0]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_normal[0]['english']  ?></p>
+						<p class="cn"><?php echo $product_normal[0]['title']  ?></p>
+					</div>
+				</a>
+				<a href="<?php echo site_url('index/home/product?v=h#').$product_high[0]['serial'] ?>" class="item item2">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_high[0]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_high[0]['english']  ?></p>
+						<p class="cn"><?php echo $product_high[0]['title']  ?></p>
+					</div>
+				</a>
+				<a href="<?php echo site_url('index/home/product?v=n#').$product_normal[1]['serial'] ?>" class="item item3">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_normal[1]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_normal[1]['english']  ?></p>
+						<p class="cn"><?php echo $product_normal[1]['title']  ?></p>
+					</div>
+				</a>
+				<a href="<?php echo site_url('index/home/product?v=h#').$product_high[1]['serial'] ?>" class="item item4">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_high[1]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_high[1]['english']  ?></p>
+						<p class="cn"><?php echo $product_high[1]['title']  ?></p>
+					</div>
+				</a>
+				<a href="<?php echo site_url('index/home/product?v=n#').$product_normal[2]['serial'] ?>" class="item item5">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_normal[2]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_normal[2]['english']  ?></p>
+						<p class="cn"><?php echo $product_normal[2]['title']  ?></p>
+					</div>
+				</a>
+				<a href="<?php echo site_url('index/home/product?v=n#').$product_normal[3]['serial'] ?>" class="item item6">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_normal[3]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_normal[3]['english']  ?></p>
+						<p class="cn"><?php echo $product_normal[3]['title']  ?></p>
+					</div>
+				</a>
+			</div>
+			<div class="list-item p2">
+				<a href="<?php echo site_url('index/home/product?v=n#').$product_normal[4]['serial'] ?>" class="item item1">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_normal[4]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_normal[4]['english']  ?></p>
+						<p class="cn"><?php echo $product_normal[4]['title']  ?></p>
+					</div>
+				</a>
+				<a href="<?php echo site_url('index/home/product?v=h#').$product_high[2]['serial'] ?>" class="item item2">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_high[2]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_high[2]['english']  ?></p>
+						<p class="cn"><?php echo $product_high[2]['title']  ?></p>
+					</div>
+				</a>
+				<a href="<?php echo site_url('index/home/product?v=n#').$product_normal[5]['serial'] ?>" class="item item3">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_normal[5]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_normal[5]['english']  ?></p>
+						<p class="cn"><?php echo $product_normal[5]['title']  ?></p>
+					</div>
+				</a>
+				<a href="<?php echo site_url('index/home/product?v=h#').$product_high[3]['serial'] ?>" class="item item4">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_high[3]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_high[3]['english']  ?></p>
+						<p class="cn"><?php echo $product_high[3]['title']  ?></p>
+					</div>
+				</a>
+				<a href="<?php echo site_url('index/home/product?v=n#').$product_normal[6]['serial'] ?>" class="item item5">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_normal[6]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_normal[6]['english']  ?></p>
+						<p class="cn"><?php echo $product_normal[6]['title']  ?></p>
+					</div>
+				</a>
+				<a href="<?php echo site_url('index/home/product?v=n#').$product_normal[7]['serial'] ?>" class="item item6">
+					<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$product_normal[7]['thumb']; ?>') ">
+					</div>
+					<div class="cover">
+						<p class="en"><?php echo $product_normal[7]['english']  ?></p>
+						<p class="cn"><?php echo $product_normal[7]['title']  ?></p>
+					</div>
+				</a>
+			</div>
+			
+		</div>
+	</div>
+	<ul class="control-nav">
+		<li><a href="javascript:;" class="prev active"> </a></li>
+		<li><a href="javascript:;" class="next"> </a></li>
+	</ul>
+</div>
+<div class="index-team" id="index-team">
+	<div class="box-shadow"></div>
+	<div class="title"></div>
+	<div class="content">
+		<?php foreach($staff as $k => $v): ?>
+		<a href="javascript:;" class="item item<?php echo ($k+1); ?>">
+			<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+				
+			</div>
+			<div class="cover">
+				<p class="name"><?php echo $v['name'] ?></p>
+				<div class="border"></div>
+				<p class="position"><?php echo $v['position'] ?></p>
+				<!-- <p class="info"><?php echo $v['info'] ?></p> -->
+			</div>
+		</a>
+		<?php  endforeach; ?>
+		<a class="item item7">
+			<p class="begin">“</p>
+			<p class="en">The best preparation for tomorrow is doing your best today</p>
+			<p class="cn">对明天做好的准备就是今天做到最好</p>
+			<p class="end">”</p>
+		</a>
+		<a class="item item8">
+			<div class="back" style="background-image:url('<?php echo $image_path.'team-item4.png'; ?>') ">
+			</div>
+		</a>
+		<a class="item item9">
+			<div class="back" style="background-image:url('<?php echo $image_path.'team-item6.png'; ?>'); background-size:100% auto; ">
+			</div>
+		</a>
+	</div>
+</div>
+<div class="index-contact" id="index-contact">
+	<!-- <img class="title" src="<?php echo base_url().'public/dist/index/images/index-contact-title.png' ?>" alt=""> -->
+	<div class="title"></div>
+	<div class="content">
+		<form class="form-message">
+			<input type="text" placeholder="您的姓名:" name="name">
+			<input type="text" placeholder="您的联系方式：" name="mobile">
+			<textarea id="" placeholder="您的留言内容：" name="info" maxlength="300"></textarea>
+			<a href="javascript:;" class="submit">/　确定　/</a>
+		</form>
+		<div class="show">
+			<div class="phone">
+				<div class="icon"></div>
+				<p class="name">联系电话</p>
+				<p class="text">021-63129985</p>
+			</div>
+			<div class="email">
+				<div class="icon"></div>
+				<p class="name">联系邮箱</p>
+				<p class="text">tiffany@heraldry.cn</p>
+			</div>
+			<div class="address">
+				<div class="icon"></div>
+				<p class="name">工作地址</p>
+				<p class="text">上海市杨浦区国权路98号国阳大厦808室 P.R.C.200433</p>
+			</div>
+			<div class="time">
+				<div class="icon"></div>
+				<p class="name">工作时间</p>
+				<p class="text">09:00 AM~06:00 PM</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<?php  
+	$this->load->view('index/footer.html');
+?>
+<script type="text/javascript" src="<?php echo base_url().'public/common/FlexSlider-master/jquery.flexslider-min.js' ?>"></script>
+<script type="text/javascript">
+	$(function(){
+		// 生成滚动banner
+		$('.flexslider').flexslider({
+		    animation: "slide"
+		  });
+
+		setTimeout(function(){
+			$('.site-loading').addClass('hide').hide();
+		},2000)
+
+		// 清空banner控制器内的文字
+		function getPosition(ele){
+			return $(ele).offset().top;
+		}
+		$('.flex-next,.flex-prev').html('');
+		var index_banner = getPosition('.index-banner') - 150,
+			index_about = getPosition('#index-about') - 150,
+			index_news = getPosition('#index-news') - 150,
+			index_flow = getPosition('#index-flow') - 150,
+			index_story = getPosition('#index-story') - 150,
+			index_product = getPosition('#index-product') - 150,
+			index_team = getPosition('#index-team') - 150,
+			index_contact = getPosition('#index-contact') - 150;
+
+		// 公司产品的滑动控制
+		$('.index-product .next').mouseenter(function(){
+			$('.index-product .control-nav a').removeClass('active')
+			$(this).addClass('active');
+			$('.index-product .content-list').stop(true,true).animate({
+				'left': '-1096px',
+			}, 400)
+		})
+		$('.index-product .prev').mouseenter(function(){
+			$('.index-product .control-nav a').removeClass('active')
+			$(this).addClass('active');
+			$('.index-product .content-list').stop(true,true).animate({
+				'left': '0px',
+			}, 400)
+		})
+
+		// 显示申请表单模块
+		$('a.apply').click(function(event) {
+			$('.index-form').show();
+		});
+		// 关闭申请表单模块
+		$('.index-form .close').click(function(event) {
+			$('.index-form').hide();
+			/* Act on the event */
+		});
+		// 申请表单中的性别切换
+		$('.index-form .male,.female').click(function(){
+			$('.index-form .male,.female').removeClass('checked');
+			$(this).addClass('checked');
+			$('.index-form input[name=sex]').val($(this).attr('data-value'))
+			console.log($('.index-form input[name=sex]').val());
+		})
+
+		
+
+		// 检测页面位置，改变navbar状态
+		$(window).scroll(function(){
+			var curScrollTop = $('body').scrollTop();
+		    if(curScrollTop > index_banner && curScrollTop < index_about){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .index').addClass('active')
+		    }
+		    if(curScrollTop > index_about-100 && curScrollTop < index_news){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .about').addClass('active')
+		    }
+		    if(curScrollTop > index_news && curScrollTop < index_flow){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .news').addClass('active')
+		    }
+		    if(curScrollTop > index_flow && curScrollTop < index_story){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .flow').addClass('active')
+		    }
+		    if(curScrollTop > index_story && curScrollTop < index_product){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .story').addClass('active')
+		    }
+		    if(curScrollTop > index_product && curScrollTop < index_team){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .product').addClass('active')
+		    }
+		    if(curScrollTop > index_team && curScrollTop < index_contact){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .team').addClass('active')
+		    }
+		    if(curScrollTop > index_contact){
+		    	$('.a-content').removeClass('active');
+		    	$('a.nav-item .contact').addClass('active')
+		    }
+		})
+
+		// 联系我们表单边框效果
+		$('.index-contact input,textarea').on('focus',function(){
+			$(this).addClass('active')
+		})
+		$('.index-contact input,textarea').on('blur',function(){
+			$(this).removeClass('active')
+		})
+
+		// 申请表单提交
+		$('.form-entry .submit').click(function(){
+			var form = $('.form-entry').get(0);
+			var data = {
+				'name': form.name.value.trim(0),
+				'sex': form.sex.value.trim(0),
+				'birth': form.birth.value.trim(0),
+				'wechat': form.wechat.value.trim(0),
+				'mobile': form.mobile.value.trim(0),
+				'email': form.email.value.trim(0),
+			};
+			if(data.name.length == 0){
+				alert('请输入您的姓名');
+				return false;
+			}
+			if(!/^1\d{10}$/.test(data.mobile)){
+				alert('请输入正确的手机号码')
+				return false;
+			}
+			if(!/(.)*@\w{2,3}\.\w{2}/.test(data.email)){
+				alert('请输入正确的邮箱')
+				return false;
+			}
+
+			$('.form-entry').ajaxSubmit({
+				url: "<?php echo site_url('index/home/entry_send'); ?>",
+				type: "POST",
+				success: function(res){
+					if(res != 0){
+						$('.index-form').hide(1);
+						alert('您的申请已提交成功，请耐心等待我们的回复')
+					}else{
+						alert("提交出错，请直接电话联系")
+					}
+				},
+				error: function(error){
+					alert('提交出错，请重试');
+				}
+			})
+		})
+		// 留言表单提交
+		$('.form-message .submit').click(function(){
+			var form = $('.form-message').get(0);
+			var data = {
+				'name': form.name.value.trim(0),
+				'mobile': form.mobile.value.trim(0),
+				'info': form.info.value.trim(0),
+			};
+			if(data.name.length == 0){
+				alert('请输入您的姓名');
+				return false;
+			}
+			if(!/^1\d{10}$/.test(data.mobile)){
+				alert('请输入正确的手机号码')
+				return false;
+			}
+			$('.form-message').ajaxSubmit({
+				url: "<?php echo site_url('index/home/message_send'); ?>",
+				type: "POST",
+				success: function(res){
+					if(res != 0){
+						alert('您的留言已提交成功，请耐心等待我们的回复');
+						location.reload();
+					}else{
+						alert("提交出错，请直接电话联系")
+					}
+				},
+				error: function(error){
+					alert('提交出错，请重试');
+				}
+			})
+		})
+
+
+		
+
+
+	})
+</script>

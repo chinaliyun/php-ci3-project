@@ -1,0 +1,25 @@
+<?php  
+	$this->load->view('wap/header.html');
+?>
+<meta charset="utf-8">
+<div class="content team_list">
+	<ul class="scroller">
+	<?php foreach($staff as $k=>$v): ?>
+		<li class="list-item">
+			<div class="back">
+				<div class="img" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+				</div>
+				<div class="staff-info">
+					<p class="name"><?php echo $v['name']; ?></p>
+					<div class="border"></div>
+					<p class="position"><?php echo $v['position'] ?></p>
+					<p class="info"><?php echo $v['info'] ?></p>
+				</div>
+			</div>
+		</li>
+	<?php  endforeach; ?>
+	</ul>
+</div>
+<?php
+	$this->load->view('wap/footer.html');
+?>

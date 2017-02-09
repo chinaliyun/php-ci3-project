@@ -1,0 +1,61 @@
+
+<div class="content-main article">
+	<p class="header">
+		文章列表
+	</p>
+	<table class="table table-bordered">
+		<tr>
+			<th>
+				<span class="editor col-md-2">编号</span>
+				<span class="title col-md-3">标题</span>
+				<!-- <span class="thumb col-md-2">封面</span> -->
+				<span class="time col-md-3">时间</span>
+				<span class="edit col-md-2">操作</span>
+			</th>
+		</tr>
+		<?php foreach ($news as $v): ?>
+			<tr>
+				<td>
+					<span class="editor col-md-2"><?php echo $v['serial'] ?></span>
+					<a href="<?php echo site_url('n/').$v['serial']; ?>" target="_blank" class="title col-md-3" title="点击查看详情"><?php echo $v['title']; ?></a>
+					<!-- <span class="thumb col-md-2"><?php echo $v['thumb']; ?></span> -->
+					<span class="time col-md-3"><?php echo $v['time']; ?></span>
+					<span class="edit col-md-2"><a href="<?php echo site_url('admin/news/edit/'),$v['nid'];?>">编辑</a><a href="javascript:;" class="del_news" data-nid="<?php echo $v['nid'];?>" data-serial="<?php echo $v['serial'] ?>">删除</a></span>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+	</table>
+	<div class="page"><?=$page?></div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		$('.del_news').click(function(){
+			// $(this).preventDefault();
+			var msg = confirm('确定要删除吗？');
+			if(msg){
+				$.ajax({
+					url: "<?php echo site_url('admin/news/del'); ?>",
+					type: "POST",
+					data: {
+						'nid': $(this).attr('data-nid'),
+						'serial': $(this).attr('data-serial')
+					},
+					success: function(res){
+						if(res == 1){
+							// alert('删除成功')
+							window.location.reload();
+						}else{
+							alert("删除失败，请联系管理员")
+						}
+					},
+					error: function(error){
+						alert('删除失败，请联系管理员')
+					}
+				})
+			}
+			return false;
+		})
+	})
+</script>
+
+

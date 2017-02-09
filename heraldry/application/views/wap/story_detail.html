@@ -1,0 +1,21 @@
+<?php  
+	$this->load->view('wap/header.html');
+	$this->load->view('wap/nav_bar.html');
+?>
+<div class="detail story_detail">
+	<!-- <h1><?php echo $story['title'] ?></h1> -->
+	<div class="detail-content"><?php echo $story['content'] ?></div>
+</div>
+<div class="page">
+	<?php  if($story_next):  ?>
+		<a href="<?php echo $story_next[0]['serial']; ?>" class="page-fixed-prev">上一篇</a>
+	<?php endif; ?>
+	<?php  if($story_prev):  ?>
+		<a href="<?php echo $story_prev[0]['serial']; ?>" class="page-fixed-next">下一篇</a>
+	<?php endif; ?>
+</div>
+
+<?php  
+	$this->load->view('wap/footer.html');
+?>
+

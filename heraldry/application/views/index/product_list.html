@@ -1,0 +1,48 @@
+<?php
+	$this->load->view('index/header.html');
+	$this->load->view('index/other_nav.html');
+?>
+<div class="product-path">
+	<p>您的位置：首页 &gt; 产品定制</p>
+</div>
+<div class="product-nav">
+	<div class="content">
+		<a href="<?php echo site_url('index/home/product?v=n') ?>" class="nav-item v1 <?php if($this->input->get('v') == 'n') echo 'active' ?>"><div class="img"></div></a>
+		<a href="<?php echo site_url('index/home/product?v=h') ?>" class="nav-item v2 <?php if($this->input->get('v') == 'h') echo 'active' ?>"><div class="img"></div></a>
+	</div>
+</div>
+<div class="product-content v1">
+	<div class="content-banner">
+		<img src="<?php if($this->input->get('v') == 'n'){echo base_url().'public/dist/index/images/product-v1-banner.png';}else{echo base_url().'public/dist/index/images/product-v2-banner.png'; } ?>" alt="">
+	</div>
+	<div class="content-list">
+	<?php foreach($product as $v): ?>
+		<div class="list-item" id="<?php  echo $v['serial']?>">
+			<p class="title"><?php  echo $v['title']?></p>
+			<img src="<?php echo base_url().'public/upload/'.$v['banner']; ?>" alt="">
+			<div class="begin">“</div>
+			<?php  echo $v['content']?>
+			<div class="end">”</div>
+		</div>
+	<?php  endforeach ?>
+	</div>
+</div>
+<?php  
+	$this->load->view('index/footer.html');
+?>
+<script type="text/javascript">
+	$(function(){
+		$('.product-nav .v1').click(function(event) {
+			// $('.product-nav a').removeClass('active');
+			// $(this).addClass('active');
+			// $('.product-content').addClass('displayNone');
+			// $('.product-content.v1').removeClass('displayNone');
+		});
+		$('.product-nav .v2').click(function(event) {
+			// $('.product-nav a').removeClass('active');
+			// $(this).addClass('active');
+			// $('.product-content').addClass('displayNone');
+			// $('.product-content.v2').removeClass('displayNone');
+		});
+	})
+</script>

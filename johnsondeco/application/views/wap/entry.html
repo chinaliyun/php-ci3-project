@@ -1,0 +1,80 @@
+<?php  
+	$this->load->view('wap/header.html');
+	$this->load->view('wap/nav_bar.html');
+?>
+<div class="index-form">
+	<div class="content">
+		<div class="form-body">
+			<form action="" class="form-entry" autocomplete="off">
+				<input type="text" name="name" placeholder="姓名">
+				<!-- <input type="text" name="sex" placeholder="性别"> -->
+				<div class="sex">
+					性别
+					<input type="radio" name="sex" value="1" checked="">男
+					<input type="radio" name="sex" value="0">女
+				</div>
+				<input type="text" name="birth" placeholder="出生日期">
+				<input type="text" name="wechat" placeholder="微信">
+				<input type="text" name="mobile" placeholder="手机">
+				<input type="text" name="email" placeholder="邮箱">
+				<div class="btn-group">
+					<a href="javascript:;" class="submit">提 交</a>
+					<a href="javascript:;" class="close">取 消</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<?php  
+	$this->load->view('wap/footer.html');
+?>
+<script type="text/javascript">
+	$(function(){
+		// 关闭申请表单模块
+		$('.index-form .close').click(function(event) {
+			$('.index-form').hide();
+			/* Act on the event */
+		});
+		// 申请表单提交
+		$('.form-entry .submit').click(function(){
+			var form = $('.form-entry').get(0);
+			var data = {
+				'name': form.name.value.trim(0),
+				'sex': form.sex.value.trim(0),
+				'birth': form.birth.value.trim(0),
+				'wechat': form.wechat.value.trim(0),
+				'mobile': form.mobile.value.trim(0),
+				'email': form.email.value.trim(0),
+			};
+			if(data.name.length == 0){
+				alert('请输入您的姓名');
+				return false;
+			}
+			if(!/^1\d{10}$/.test(data.mobile)){
+				alert('请输入正确的手机号码')
+				return false;
+			}
+			if(!/(.)*@\w{2,3}\.\w{2}/.test(data.email)){
+				alert('请输入正确的邮箱')
+				return false;
+			}
+
+			$('.form-entry').ajaxSubmit({
+				url: "<?php echo site_url('wap/home/entry_send'); ?>",
+				type: "POST",
+				success: function(res){
+					if(res != 0){
+						// $('.index-form').hide(1);
+						alert('您的申请已提交成功，请耐心等待我们的回复')
+						location.href="<?php echo site_url('wap/home') ?>"
+					}else{
+						alert("提交出错，请直接电话联系")
+					}
+				},
+				error: function(error){
+					alert('提交出错，请重试');
+				}
+			})
+		})
+	})
+</script>

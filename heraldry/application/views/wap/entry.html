@@ -1,0 +1,94 @@
+<?php  
+	$this->load->view('wap/header.html');
+?>
+<div class="index-form">
+	<div class="content">
+		<img src="<?php echo base_url().'public/dist/wap/images/entry-title-img.png' ?>" alt="" class="entry-title-img">
+		<div class="form-body">
+			<form action="" class="form-entry" autocomplete="off">
+				<input type="text" name="name" placeholder="姓名">
+				<!-- <input type="text" name="sex" placeholder="性别"> -->
+				<div class="sex">
+					<span>性别</span>
+					<label for="" class="male active" data-sex="1"></label><span>男士</span>
+					<label for="" class="female" data-sex="0"></label><span>女士</span>
+				</div>
+				<input type="hidden" name="sex" value="1">
+				<input type="tel" name="birth" placeholder="出生日期">
+				<input type="text" name="wechat" placeholder="微信">
+				<input type="tel" name="mobile" placeholder="手机">
+				<input type="text" name="email" placeholder="邮箱">
+				<div class="btn-group">
+					<a href="javascript:;" class="submit">提 交</a>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="success">
+		<div class="box">
+			<p>感谢您的参与!<br/>专属纹章官将于48小时内与您联系!</p>
+			<div class="success-btn"></div>
+		</div>
+	</div>
+</div>
+<?php  
+	$this->load->view('wap/footer.html');
+?>
+<script type="text/javascript">
+	$(function(){
+		// 切换性别
+		$('.index-form .sex label').click(function(event) {
+			var sexValue = $(this).attr('data-sex');
+			$(".sex label").removeClass('active');
+			$(this).addClass('active');
+			var form = $('.form-entry').get(0);
+			form.sex.value = sexValue;
+			/* Act on the event */
+		});
+		// 申请表单提交
+		$('.form-entry .submit').click(function(){
+			var form = $('.form-entry').get(0);
+			var data = {
+				'name': form.name.value.trim(0),
+				'sex': form.sex.value.trim(0),
+				'birth': form.birth.value.trim(0),
+				'wechat': form.wechat.value.trim(0),
+				'mobile': form.mobile.value.trim(0),
+				'email': form.email.value.trim(0),
+			};
+			if(data.name.length == 0){
+				alert('请输入您的姓名');
+				return false;
+			}
+			if(!/^1\d{10}$/.test(data.mobile)){
+				alert('请输入正确的手机号码')
+				return false;
+			}
+			if(!/(.)*@\w{2,3}\.\w{2}/.test(data.email)){
+				alert('请输入正确的邮箱')
+				return false;
+			}
+
+			$('.form-entry').ajaxSubmit({
+				url: "<?php echo site_url('wap/home/entry_send'); ?>",
+				type: "POST",
+				success: function(res){
+					if(res != 0){
+						// $('.index-form').hide(1);
+						// alert('您的申请已提交成功，请耐心等待我们的回复')
+						$('.success').fadeIn(400);
+						
+					}else{
+						alert("提交出错，请直接电话联系")
+					}
+				},
+				error: function(error){
+					alert('提交出错，请重试');
+				}
+			})
+		})
+		$('.success-btn').click(function(){
+			location.href="<?php echo site_url('wap/home') ?>"
+		})
+	})
+</script>

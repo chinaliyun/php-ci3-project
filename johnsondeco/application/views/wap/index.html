@@ -1,0 +1,73 @@
+<?php  
+	$this->load->view('wap/header.html');
+	$this->load->view('wap/banner.html');
+?>
+
+<a href="/wap/home/base_menu" class="index-menu">
+	<img src="<?php echo base_url().'/public/dist/wap/images/index-menu.jpg' ?>" alt="">
+</a>
+<a href="/wap/home/project_menu" class="index-project">
+	<img src="<?php echo base_url().'/public/dist/wap/images/index-project.jpg' ?>" alt="">
+</a>
+
+<div class="index-contact">
+	<div class="contact-content">
+		<p class="title"></p>
+		<!-- <p class="border"></p> -->
+		<!-- <p class="en">GET IN  TOUCH</p> -->
+		<form class="form form-message" autocomplete="off">
+			<input type="text" placeholder="您的姓名" name="name">
+			<input type="text" placeholder="您的联系方式(电话/邮箱)" name="mobile">
+			<textarea name="info" placeholder="您的留言内容"></textarea>
+			<div class="submit"> </div>
+		</form>
+	</div>
+</div>
+<div class="index-address">
+	<img src="<?php echo base_url().'public/dist/wap/images/index-address-bg.png' ?>" alt="">
+</div>
+<?php  
+	$this->load->view('wap/footer.html');
+?>
+<script type="text/javascript">
+	$(function(){
+		// 生成滚动banner
+		$('.index-banner .flexslider').flexslider({
+		    animation: "slide",
+		    animationLoop: true
+		  });
+		// 留言表单提交
+		$('.form-message .submit').click(function(){
+			var form = $('.form-message').get(0);
+			var data = {
+				'name': form.name.value.trim(0),
+				'mobile': form.mobile.value.trim(0),
+				'info': form.info.value.trim(0),
+			};
+			if(data.name.length == 0){
+				alert('请输入您的姓名');
+				return false;
+			}
+			if(data.mobile.length == 0){
+				alert('请输入联系方式')
+				return false;
+			}
+			$('.form-message').ajaxSubmit({
+				url: "<?php echo site_url('index/home/message_send'); ?>",
+				type: "POST",
+				success: function(res){
+					if(res != 0){
+						alert('您的留言已提交成功，请耐心等待我们的回复');
+						location.reload();
+					}else{
+						alert("提交出错，请直接电话联系")
+					}
+				},
+				error: function(error){
+					alert('提交出错，请重试');
+				}
+			})
+		})
+	})
+</script>
+

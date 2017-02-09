@@ -1,0 +1,57 @@
+<style type="text/css">
+	html,body{
+		width: 100%;
+	}
+</style>
+<?php  
+	$this->load->view('wap/header.html');
+?>
+<div class="content news_list wrapper">
+	<div class="page-path"> / <?php echo $path;?> / </div>
+	<div class="list-page">	
+		<a class="prev" href="<?php echo site_url('wap/nl/').$page_prev; ?>"></a>
+		<a class="next" href="<?php echo site_url('wap/nl/').$page_next; ?>"></a>
+	</div>
+	<ul class="scroller">
+	<?php foreach($news as $k=>$v): ?>
+		<li class="list-item" data-id="<?php echo $v['serial'] ?>">
+			<div class="item">
+				<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+				</div>
+				<div class="cover">
+					<p class="title"><?php echo $v['title'] ?></p>
+					<!-- <p class="time"><?php echo $v['time']; ?></p> -->
+				</div>
+			</div>
+		</li>
+	<?php  endforeach; ?>
+	</ul>
+	<?php foreach($news as $k=>$v): ?>
+		<div class="detail-list" id="<?php echo $v['serial'] ?>">
+			<div class="list-content">
+				<div class="content">
+					<?php echo $v['content'] ?>
+				</div>
+				<div class="detail-close" data-id="<?php echo $v['serial'] ?>">
+					<img src="<?php echo base_url('public/dist/wap/images/close-btn.png') ?>" alt="">
+				</div>
+			</div>
+		</div>
+	<?php  endforeach; ?>
+</div>
+<?php  
+	$this->load->view('wap/footer.html');
+?>
+<script type="text/javascript">
+	$(function(){
+		$('li.list-item').click(function(){
+			var id = $(this).attr('data-id');
+			$('.detail-list').hide(1);
+			$('#'+id).show(1);
+		})
+		$('.detail-close').click(function(){
+			var id = $(this).attr('data-id');
+			$('.detail-list').hide(1);
+		})
+	})
+</script>

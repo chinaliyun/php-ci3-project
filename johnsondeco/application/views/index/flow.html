@@ -1,0 +1,22 @@
+<?php
+	$this->load->view('index/header.html');
+	$this->load->view('index/other_nav.html');
+?>
+
+<div class="flow_detail">
+	<div class="detail-path">
+		您的位置：<a href="<?php echo site_url('index/home'); ?>">首页</a> > 申请流程
+	</div>
+	<div class="detail-content">
+		<?php  echo $flow[0]['content'] ?>
+	</div>
+	
+</div>
+
+<?php  
+	$this->load->view('index/footer.html');
+?>
+<script type="text/javascript" src="<?php echo base_url().'public/common/FlexSlider-master/jquery.flexslider-min.js' ?>"></script>
+<script type="text/javascript">
+
+</script>

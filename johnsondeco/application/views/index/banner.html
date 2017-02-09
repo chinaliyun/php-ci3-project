@@ -1,0 +1,10 @@
+
+<div class="index-banner" id="index-banner">
+	<div class="flexslider">
+		<ul class="slides">
+			<?php  foreach($banner as $v): ?>
+				<li><a href="<?php echo $v['url'] ?>" style="background:url('<?php echo base_url().'public/upload/'.$v['thumb'] ?>'); background-position: center center; background-repeat: no-repeat; background-size: auto 100%;"></a></li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</div>

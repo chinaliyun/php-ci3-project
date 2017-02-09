@@ -1,0 +1,64 @@
+<?php 
+	$this->load->view('admin/header.html');
+?>
+<div class="container-fuild login">
+    <div class="login_form">
+        <form class="form-horizontal" role="form" action="" autocomplete="off">
+            <div class="form-group">
+                <label for="" class="col-sm-4 control-label">管理员：</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="user" name="user" placeholder="账户名" autofocus="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="" class="col-sm-4 control-label">密码：</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox">保留登录信息
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="form-group"> -->
+            <!-- <div class="col-sm-offset-2 col-sm-10"> -->
+            <!-- <button type="submit" class="btn btn-primary ">登录</button> -->
+            <a href="javascript:;" class="login_btn btn btn-primary">登录</a>
+            <!-- </div> -->
+            <!-- </div> -->
+        </form>
+    </div>
+</div>
+<?php 
+	$this->load->view('admin/footer.html');
+?>
+<script type="text/javascript">
+$(function() {
+    // 初始化content宽度
+    $('.login_btn').click(function(){
+        $('form').ajaxSubmit({
+            url: "<?php echo site_url('admin/login/send'); ?>",
+            type: "POST",
+            success: function(res){
+                console.log(res);
+                if(res == 0){
+                    alert('账户或密码错误，请重试')
+                }else{
+                    document.cookie = res;
+                    document.cookie = 'user='+$('input[name=user]').val();
+                    console.log(document.cookie);
+                    location.href="/admin/home";
+                }
+            },
+            error: function(error){
+                alert('账户或密码错误,请重试');
+            }
+        })
+    })
+})
+</script>

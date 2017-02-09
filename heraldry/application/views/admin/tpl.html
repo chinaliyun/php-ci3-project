@@ -1,0 +1,22 @@
+<?php 
+	$this->load->view('admin/header.html');
+?>
+
+<div class="container-fuild">
+	<?php 
+		$this->load->view('admin/leftnav.html');
+	?>
+	<div class="content">
+		<div class="topbar">
+			 <?php echo $company; ?>
+		</div>
+		<p class="path"><?php echo $path; ?></p>
+		<?php 
+			$this->load->view('admin/footer.html');
+			$this->load->view($subpage);
+		?>
+	</div>
+</div>
+
+
+

@@ -1,0 +1,25 @@
+
+<div class="content-main admin">
+	<p class="header">
+		消息通知
+	</p>
+	<ul class="admin-status row">
+		<li class="col-md-3"><a href="<?php echo site_url('admin/home/message') ?>">未读留言<span><?php echo $message ?></span></a></li>
+		<!-- <li class="col-md-3"><a href="<?php echo site_url('admin/home/entry') ?>">申请消息<span><?php echo $entry ?></span></a></li> -->
+	</ul>
+	<p class="header">
+		系统信息
+	</p>
+	<table>
+		<tr>
+			<td>服务器名称：</td>
+			<td><?php echo $_SERVER['SERVER_NAME'] ?></td>
+		</tr>
+		<tr>
+			<td>服务器环境：</td>
+			<td><?php echo $_SERVER['SERVER_SOFTWARE']; ?>/td>
+		</tr>
+	</table>
+</div>
+
+

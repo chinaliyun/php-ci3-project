@@ -1,0 +1,100 @@
+<!-- 左边导航 公用 -->
+<div class="leftnav">
+    <div class="logo">
+        <img src="<?php echo base_url().'public/dist/admin/images/logo.png' ?>" alt="">
+    </div>
+    <!-- <?php echo $current_nav;  ?> -->
+    <ul class="nav-list">
+        <li class="nav-list-header">
+            <a href="<?php echo site_url('admin/home') ?>" class="<?php if($current_nav == '') echo 'cur-nav';?>">
+	  			系统信息
+  			</a>
+        </li>
+        <!-- <li class="nav-list-header">留言管理</li> -->
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/home/message') ?>" class="<?php if($current_nav == 'message') echo 'cur-nav';?>">
+	  			留言列表
+  			</a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/home/entry') ?>" class="<?php if($current_nav == 'entry') echo 'cur-nav';?>">
+	  			申请记录
+  			</a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/banner') ?>" class="<?php if($current_nav == 'banner') echo 'cur-nav';?>">
+                Banner列表
+            </a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/banner/edit') ?>" class="<?php if($current_nav == 'bannerEdit') echo 'cur-nav';?>">
+                新增Banner
+            </a>
+        </li>
+        <!-- <li class="nav-list-header">新闻管理</li> -->
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/news') ?>" class="<?php if($current_nav == 'news') echo 'cur-nav';?>">
+	  			新闻列表
+  			</a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/news/edit') ?>" class="<?php if($current_nav == 'newsEdit') echo 'cur-nav';?>">
+	  			发布新闻
+  			</a>
+        </li>
+        <!-- <li class="nav-list-header">故事管理</li> -->
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/story') ?>" class="<?php if($current_nav == 'story') echo 'cur-nav';?>">
+          故事列表
+        </a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/story/edit') ?>" class="<?php if($current_nav == 'storyEdit') echo 'cur-nav';?>">
+          发布故事
+        </a>
+        </li>
+        <!-- <li class="nav-list-header">产品管理</li> -->
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/product') ?>" class="<?php if($current_nav == 'product') echo 'cur-nav';?>">
+	  			产品列表
+  			</a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/product/edit') ?>" class="<?php if($current_nav == 'productEdit') echo 'cur-nav';?>">
+	  			添加产品
+  			</a>
+        </li>
+        <!-- <li class="nav-list-header">员工管理</li> -->
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/staff') ?>" class="<?php if($current_nav == 'staff') echo 'cur-nav';?>">
+	  			员工列表
+  			</a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/staff/edit') ?>" class="<?php if($current_nav == 'staffEdit') echo 'cur-nav';?>">
+	  			添加员工
+  			</a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/home/flow_edit') ?>" class="<?php if($current_nav == 'flowEdit') echo 'cur-nav';?>">
+                申请流程
+            </a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/home/company') ?>" class="<?php if($current_nav == 'company') echo 'cur-nav';?>">
+                公司设置
+            </a>
+        </li>
+        <!-- <li class="nav-list-header">系统管理</li> -->
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/home/user_edit') ?>" class="<?php if($current_nav == 'userEdit') echo 'cur-nav';?>">
+	  			修改密码
+  			</a>
+        </li>
+        <li class="nav-list-item">
+            <a href="<?php echo site_url('admin/media/') ?>" class="<?php if($current_nav == 'media') echo 'cur-nav';?>">
+	  			图片管理
+  			</a>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,51 @@
+<?php
+	$this->load->view('index/header.html');
+	$this->load->view('index/other_nav.html');
+	// $this->load->view('index/banner.html');
+?>
+<?php  if($news_prev):  ?>
+	<a href="<?php echo $news_prev[0]['serial']; ?>" class="page-fixed-next"></a>
+<?php endif; ?>
+<?php  if($news_next):  ?>
+	<a href="<?php echo $news_next[0]['serial']; ?>" class="page-fixed-prev"></a>
+<?php endif; ?>
+<div class="story-detail">
+	<div class="detail-path">
+		您的位置：<a href="<?php echo site_url('index/home'); ?>">首页</a> > <a href="<?php echo site_url('index/nl') ?>">纹章院动态</a> > <?php echo $news['title'] ?>
+	</div>
+	<!-- <div class="detail-title"><?php echo $news['title'];  ?></div> -->
+	<div class="detail-content">
+		<?php echo $news['content'] ?>
+		<!-- <img src="<?php echo $image_path.'story-detail-img.jpg' ?>" alt="">
+		<h1>卜先生 · 家徽宣解</h1>
+		<h2>盾 徽</h2>
+		<p>楔形盾徽，盾面两分区。卜先生之事业以“兴”字为名，亦研读国学，故核心盾徽用兴字，形取篆书，慕灵秀飘逸之姿；神借甲骨，取众志成城本意，在右侧（纹章学中以己侧定方向）。兴是众人合力举起之意，按照其字源解说：兴，上面是凡，多柄的夯具；下面为口，劳动时喊的口号；周围四只手则表示同患难，共进退。众人齐呼口号，同心协力，共创事业。</p>
+		<p>左侧为蓝底上斜纹交错的金色水波纹，上善若水，白色的鱼鳍劈波斩浪，逆流而上，寓意坚强拼搏勇于向上不惧辛劳艰险。卜先生夫妇定居沪地，“上海”亦为“海上”，发展事业，以诚合力所致也。</p>
+		<h2>扶 盾 者</h2>
+		<p>扶盾者为一对玉兔，手持药杵，隔盾相望。此为男女主人医学院背景，事悬壶济世之业。</p>
+		<img src="<?php echo $image_path.'story-detail-img2.jpg' ?>" alt=""> -->
+	</div>
+	<div class="detail-recommand">
+		<div class="header">
+			<img src="<?php echo $image_path.'story-recommand-title.png'; ?>" alt="" class="titl">
+		</div>
+		<ul class="recommand-list">
+			<?php  foreach($recommand as $k => $v): ?>
+				<li>
+					<a href="<?php echo site_url('index/nd/').$v['serial'] ?>" class="item">
+						<div class="back" style="background-image:url('<?php echo base_url().'public/upload/'.$v['thumb']; ?>') ">
+							
+						</div>
+						<div class="cover">
+							<p class="title"><?php echo $v['title']?></p>
+							<p class="date"><?php echo preg_replace("/-/",'/',substr($v['time'],0,10)) ?></p>
+						</div>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</div>
+<?php  
+	$this->load->view('index/footer.html');
+?>

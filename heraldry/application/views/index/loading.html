@@ -1,0 +1,40 @@
+<style type="text/css">
+	html,body{
+		height: 100%;
+	}
+	body{
+		background: none;
+	}
+	.index-logo{
+		display: none;
+	}
+	.index-copyright{
+		display: none;
+	}
+</style>
+<?php
+	$this->load->view('index/header.html');
+?>
+<div class="index-loading">
+	<a href="http://johnsondeco.cn/index/" class="left">
+		<div class="cover">
+			
+		</div>
+	</a >
+	<a href="<?php echo site_url('index/home') ?>" class="right">
+		<div class="cover">
+			
+		</div>
+	</a>
+</div>
+<div class="site-loading">
+	<img src="<?php echo $image_path.'sublogo.png' ?>" alt="">
+</div>
+<?php  
+	$this->load->view('index/footer.html');
+?>
+<script type="text/javascript">
+	$(function(){
+		
+	})
+</script>

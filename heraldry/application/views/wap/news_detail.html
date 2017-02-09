@@ -1,0 +1,26 @@
+<?php  
+	$this->load->view('wap/header.html');
+	$this->load->view('wap/nav_bar.html');
+?>
+<div class="detail news_detail">
+	<!-- <h1><?php echo $news['title'] ?></h1> -->
+	<div class="detail-content"><?php echo $news['content'] ?></div>
+</div>
+<div class="page">
+	<?php  if($news_prev):  ?>
+		<a href="<?php echo $news_prev[0]['serial']; ?>" class="page-fixed-next">上一篇</a>
+	<?php endif; ?>
+	<?php  if($news_next):  ?>
+		<a href="<?php echo $news_next[0]['serial']; ?>" class="page-fixed-prev">下一篇</a>
+	<?php endif; ?>
+</div>
+
+<?php  
+	$this->load->view('wap/footer.html');
+?>
+<script type="text/javascript">
+	$(function(){
+		$('.detail-content img').attr('alt','');
+	})
+</script>
+

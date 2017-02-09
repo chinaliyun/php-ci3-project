@@ -1,0 +1,55 @@
+<?php  
+	$this->load->view('wap/header.html');
+?>
+<a href="javascript:;" class="menu about">
+	<img src="<?php echo base_url().'public/dist/wap/images/menu-about.jpg' ?>" alt="">
+</a>
+<a href="/wap/nl" class="menu">
+	<img src="<?php echo base_url().'public/dist/wap/images/menu-news.jpg' ?>" alt="">
+</a>
+<a href="/wap/home/flow" class="menu">
+	<img src="<?php echo base_url().'public/dist/wap/images/menu-flow.jpg' ?>" alt="">
+</a>
+<a href="/wap/sl" class="menu">
+	<img src="<?php echo base_url().'public/dist/wap/images/menu-story.jpg' ?>" alt="">
+</a>
+<a href="/wap/pl" class="menu">
+	<img src="<?php echo base_url().'public/dist/wap/images/menu-product.jpg' ?>" alt="">
+</a>
+<a href="/wap/tl" class="menu">
+	<img src="<?php echo base_url().'public/dist/wap/images/menu-team.jpg' ?>" alt="">
+</a>
+<div class="about-detail">
+	<div class="detail-content">
+		<div class="content">
+			<img src="<?php echo base_url().'public/dist/wap/images/about-title-img.png' ?>" alt="" class="about-title">
+			<?php echo $companyleft; ?>
+			<br><br>
+			<?php echo $companyright; ?>
+			<div class="author">
+				<p class="text">“The secret of getting ahead is getting started.”      —— MARK  TWAIN</p>
+				<p class="name">取得进展的秘诀就是开始!             —— 马克·吐温</p>
+			</div>
+		</div>
+		<div class="detail-close">
+			<img src="<?php echo base_url('public/dist/wap/images/close-btn.png') ?>" alt="">
+		</div>
+	</div>
+</div>
+<?php  
+	$this->load->view('wap/footer.html');
+?>
+<script type="text/javascript">
+	$(function(){
+		$('.about').click(function(){
+			$('.about-detail').fadeIn(500);
+			$('html').addClass('bodyOverflowHidden')
+			$('body').addClass('bodyOverflowHidden')
+		})
+		$('.detail-close').click(function(){
+			$('.about-detail').fadeOut(100);
+			$('html').removeClass('bodyOverflowHidden')
+			$('body').removeClass('bodyOverflowHidden')
+		})
+	})
+</script>

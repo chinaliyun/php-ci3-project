@@ -1,0 +1,19 @@
+<?php  
+	$this->load->view('wap/header.html');
+	$this->load->view('wap/nav_bar.html');
+?>
+<div class="detail product_detail">
+	<h1><?php echo $product['title'] ?></h1>
+	<div class="banner">
+		<img src="<?php echo base_url().'public/upload/'.$product['banner'] ?>" alt="">
+	</div>
+	<div class="detail-content">
+		<?php echo $product['content'] ?>
+	</div>
+</div>
+
+
+<?php  
+	$this->load->view('wap/footer.html');
+?>
+

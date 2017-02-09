@@ -1,0 +1,134 @@
+<div class="content-main article_edit">
+    <div class="form col-md-6">
+            <p class="header">
+                <?php 
+                    $segment = $this->uri->segment(4, 'null');
+                    $product_id = $segment == 'null' ? '发布文章' : '编辑文章';
+                    echo $product_id;
+                ?>
+            </p>
+            <form role="form" autocomplete="off">
+                <input type="hidden" name='nid' value="<?php echo $this->uri->segment(4); ?>">
+                <input type="hidden" name='serial' value="<?php if($segment == 'null'){echo rtime();}else{echo $news['serial'];} ?>">
+                <div class="form-group ">
+                    <label for="title">标题</label>
+                    <input type="text" class="form-control" name="title" id="title" placeholder="请输入文章标题,长度不超过20字" value="<?php if($segment != 'null')echo $news['title'] ?>"  />
+                </div>
+                <div class="form-group ">
+                    <label for="english">英文标题</label>
+                    <input type="text" class="form-control" name="english" id="english" placeholder="请输入文章标题,长度不超过20字" value="<?php if($segment != 'null')echo $news['english'] ?>"  />
+                </div>
+                <div class="form-group ">
+                    <label for="title">简介</label>
+                    <textarea name="info" id="info" placeholder="请输入文章简介，长度不超过50字" style="height: 100px;" class="form-control"  maxlength="50"><?php if($segment != 'null'){echo $news['info'];} ?></textarea>
+                </div>
+                <div class="form-group ">
+                    <label for="title">封面</label>
+                    <input type="file" id="thumb" name="thumb" >
+                </div>
+                <div class="form-group">
+                    <label for="content">文章内容</label>
+                    <textarea name="content" id="content" style="height: 200px;"><?php if($segment != 'null')echo $news['content'] ?></textarea>
+                </div>
+                <a class="btn btn-primary submit">发布文章</a>
+                <!-- <input class="btn btn-primary" type="submit" value="发布文章"> -->
+            </form>
+    </div>
+    <div class="col-md-6 thumb" >
+        <img class="thumb_img" src="<?php if($segment != 'null')echo base_url().'public/upload/'.$news['thumb']; ?>" alt="">
+    </div>
+</div>
+<!-- <script type="text/javascript" src="<?php echo base_url().'public/common/ueditor/ueditor.config.js' ?>"></script> -->
+<!-- <script type="text/javascript" src="<?php echo base_url().'public/common/ueditor/ueditor.all.min.js' ?>"></script> -->
+<link rel="stylesheet" href="<?php echo base_url().'public/common/wangEditor/dist/css/wangEditor.min.css' ?>">
+<script type="text/javascript" src="<?php echo base_url().'public/common/wangEditor/dist/js/wangEditor.min.js' ?>"></script>
+<script type="text/javascript" src="<?php echo base_url().'public/common/ajaxfileupload/ajaxfileupload.js' ?>"></script>
+<script type="text/javascript">
+$(function() {
+    // 新的编辑器
+    var editor = new wangEditor('content');
+    // 配置图片上传目录
+    editor.config.uploadImgUrl = "<?php echo site_url('admin/home/upload') ?>";
+    editor.config.hideLinkImg = true;
+    editor.config.uploadParams = {
+           serial: $('input[name=serial').val(),
+           direct: $('input[name=serial').val(),
+           fileField: 'wangEditorH5File'
+    };
+    // 普通的自定义菜单
+    editor.config.menus = [
+        'source',
+        'head',
+        'img',
+        'bold',
+        '|',
+        'undo',
+        'redo',
+        'alignleft',
+        'aligncenter',
+        'alignright',
+        'fullscreen'
+    ];
+    // 创建编辑器
+    editor.create();
+    
+    $('input[type=file]').on('change', function(){
+        loadFileImage($(this));
+    })
+    $('.submit').click(function() {
+        var form = $('form').get(0);
+        var data = {
+            'nid': form.nid.value, //区分发布与编辑
+            'title': form.title.value.trim(),
+            'english': form.english.value.trim(),
+            'info': form.info.value.trim(),
+            'thumb': form.thumb.files[0],
+            'content': form.content.value.trim()
+        };
+        if (data.title.length == 0) {
+            alert('标题不能为空');
+            return false;
+        }
+        if (data.title.length > 20) {
+            alert('标题长度不能超过20字');
+            return false;
+        }
+        if (data.english.length == 0) {
+            alert('英文标题不能为空');
+            return false;
+        }
+        if (data.info.length == 0) {
+            alert('简介不能为空');
+            return false;
+        }
+        if (data.info.length > 50) {
+            alert('简介长度不能超过50字');
+            return false;
+        }
+        if (data.content.length == 0) {
+            alert('内容不能为空');
+            return false;
+        }
+        if(data.nid.length == 0 && !data.thumb){
+            alert('请上传封面图片')
+            return false;
+        }
+        $('form').ajaxSubmit({
+            url: "<?php echo site_url('admin/news/send')?>",
+            type: 'POST',
+            success: function(res) {
+                console.log(res)
+                if (res != 0) {
+                    alert('发布成功');
+                    location.href = "/admin/news";
+                } else {
+                    alert('发布失败，请重试');
+                }
+            },
+            error: function(error){
+                alert('上传出错，请联系管理员');
+            }
+        })
+    })
+})
+</script>
